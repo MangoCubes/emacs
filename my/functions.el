@@ -64,3 +64,6 @@ clear the buffers undo-tree before saving the file."
 	)
   )
 
+(defun my/fullscreen (&rest r) (delete-other-windows))
+
+(advice-add #'org-capture-place-template :after 'my/fullscreen)
