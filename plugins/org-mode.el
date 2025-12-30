@@ -5,6 +5,7 @@
 (load-relative "./org/org-roam.el")
 (load-relative "./org/org-website.el")
 (load-relative "./org/valign.el")
+(load-relative "./org/keybinds.el")
 
 ;; Enable org indent mode by default
 (setq org-startup-indented t)
@@ -44,31 +45,6 @@
 (require 'org-appear)
 (add-hook 'org-mode-hook 'org-appear-mode)
 
-(defun my/org-mode-setup ()
-  "Automatically run `org-id-get-create` when creating a new Org document, and create TITLE"
-  (when (and (buffer-file-name)
-			 (eq major-mode 'org-mode)
-			 (not (string-match-p (format-time-string "^%Y-%m-%d") (file-name-nondirectory (buffer-file-name)
-																						   )
-								  )
-				  )
-			 )
-	(org-id-get-create))
-  (when (and (buffer-file-name)
-			 (eq major-mode 'org-mode)
-			 (goto-char (point-min))
-			 (unless (re-search-forward "^#\\+TITLE:" nil t)
-			   (let ((filename (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
-				 (goto-char (point-max))
-				 (insert (format "\n#+TITLE: %s\n" filename))
-				 )
-			   )
-			 )
-	)
-  )
-
-(add-hook 'org-mode-hook 'my/org-mode-setup)
-
 (defun my/org-mode-save-hook ()
   "Function to run after saving an Org mode file."
   (when (eq major-mode 'org-mode)
@@ -85,7 +61,5 @@
 ;; This makes org-store-link to use ID if available
 (setq org-id-link-to-org-use-id t)
 
-(with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c l") 'org-store-link))
 
 (add-hook 'org-mode-hook 'flyspell-mode)
