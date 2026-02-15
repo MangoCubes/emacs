@@ -40,29 +40,22 @@ clear the buffers undo-tree before saving the file."
       (error "Buffer %s has no local binding of `buffer-undo-tree'" (buffer-name buff)))))
 
 (defun my/org-mode-setup ()
-  "Automatically run `org-id-get-create` when creating a new Org document, and create TITLE"
+  "Automatically run `org-id-get-create` when creating a new Org document, and create TITLE and DATE."
+  (interactive)
   (when (and (buffer-file-name) (eq major-mode 'org-mode))
-	(org-id-get-create))
-  (when (and (buffer-file-name)
-			 (eq major-mode 'org-mode)
-			 (goto-char (point-min))
-			 (unless (re-search-forward "^#\\+TITLE:" nil t)
-			   (let ((filename (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
-				 (goto-char (point-max))
-				 (insert (format "\n#+TITLE: %s\n" filename))
-				 )
-			   )
-			 )
-			 (goto-char (point-min))
-	         (unless (re-search-forward "^#\\+DATE:" nil t)
-	           (goto-char (point-max))
-	           (insert (format "#+DATE: %s\n"
-			     (format-time-string "%Y-%m-%d")
-			           )
-			   )
-		     )
-	)
-  )
+	(org-id-get-create)
+	;; Create TITLE if it doesn't exist
+	(goto-char (point-min))
+	(unless (re-search-forward "^#\\+TITLE:" nil t)
+	  (let ((filename (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+		(goto-char (point-max))
+		(insert (format "\n#+TITLE: %s\n" filename))))
+
+	;; Create DATE if it doesn't exist
+	(goto-char (point-min))
+	(unless (re-search-forward "^#\\+DATE:" nil t)
+	  (goto-char (point-max))
+	  (insert (format "#+DATE: %s\n" (format-time-string "%Y-%m-%d"))))))
 
 (defun my/fullscreen (&rest r) (delete-other-windows))
 
