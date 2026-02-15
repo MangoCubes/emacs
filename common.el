@@ -16,7 +16,6 @@
 (load-relative "./plugins/doom-modeline.el")
 (load-relative "./plugins/multiple-cursors.el")
 (load-relative "./plugins/theme.el")
-(load-relative "./plugins/lsp.el")
 
 (load-relative "./my/startup.el")
 

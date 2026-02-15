@@ -4,7 +4,7 @@
 (load-relative "./plugins/notmuch.el")
 (load-relative "./plugins/highlight.el")
 (load-relative "./plugins/xkcd.el")
-(load-relative "./plugins/lsp.el")
+;; (load-relative "./plugins/lsp.el")
 (load-relative "./plugins/korean.el")
 (load-relative "./plugins/ligature.el")
 
