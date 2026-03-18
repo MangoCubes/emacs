@@ -60,3 +60,13 @@ clear the buffers undo-tree before saving the file."
 (defun my/fullscreen (&rest r) (delete-other-windows))
 
 (advice-add #'org-capture-place-template :after 'my/fullscreen)
+
+(defun my/linux-or-win (linux-fn win-fn)
+  "Run LINUX-FN on GNU/Linux and WIN-FN on Windows."
+  (cond
+   ((eq system-type 'windows-nt)
+    (funcall win-fn))
+   ((eq system-type 'gnu/linux)
+    (funcall linux-fn))
+   (t
+    (error "Unsupported system type: %s" system-type))))
