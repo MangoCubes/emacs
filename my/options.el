@@ -20,3 +20,5 @@
 (setq display-line-numbers-type 'relative)
 ;; Enable line number in most modes
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
+(prefer-coding-system 'utf-8)
