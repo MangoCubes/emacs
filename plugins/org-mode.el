@@ -61,5 +61,6 @@
 ;; This makes org-store-link to use ID if available
 (setq org-id-link-to-org-use-id t)
 
-
-(add-hook 'org-mode-hook 'flyspell-mode)
+(my/linux-or-win
+  (lambda () (add-hook 'org-mode-hook 'flyspell-mode))
+  (lambda () nil))
