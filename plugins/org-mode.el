@@ -4,8 +4,11 @@
 (load-relative "./org/org-download.el")
 (load-relative "./org/org-roam.el")
 (load-relative "./org/org-website.el")
-(load-relative "./org/valign.el")
 (load-relative "./org/keybinds.el")
+
+(my/linux-or-win
+  (lambda () (load-relative "./org/valign.el"))
+  (lambda () nil))
 
 ;; Enable org indent mode by default
 (setq org-startup-indented t)
