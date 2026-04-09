@@ -25,9 +25,6 @@
 
 ;; Allow moving between lines
 (setq evil-cross-lines t)
-;; Use evil mode in minibuffer
-(setq evil-want-minibuffer t)
-
 
 ;; Enable Evil mode
 (evil-mode 1)
