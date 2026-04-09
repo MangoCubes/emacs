@@ -70,3 +70,37 @@ clear the buffers undo-tree before saving the file."
     (funcall linux-fn))
    (t
     (error "Unsupported system type: %s" system-type))))
+
+(defun my/org-create-file (newfile)
+  "Create a new .org file inside a directory named after the current Org file.
+
+If the directory does not exist, create it at the same level as the current file."
+  (interactive "sNew file name (without .org): ")
+  (let* ((current-file (buffer-file-name))
+         (parent-dir (file-name-directory current-file))
+         (dir-name (if (use-region-p)
+                       (buffer-substring-no-properties
+                        (region-beginning) (region-end))
+                     (file-name-base current-file)))
+         (target-dir (expand-file-name dir-name parent-dir))
+         (target-file (expand-file-name (concat newfile ".org") target-dir))
+         file-id)
+
+    ;; Ensure directory exists
+    (unless (file-directory-p target-dir)
+      (make-directory target-dir))
+
+    ;; Create file if it does not exist
+    (unless (file-exists-p target-file)
+      (with-temp-buffer
+        (write-file target-file)))
+
+    ;; Run setup and get ID
+    (with-current-buffer (find-file-noselect target-file)
+      (my/org-mode-setup)
+      (goto-char (point-min))
+      (setq file-id (org-id-get))
+      (save-buffer))
+
+    ;; Create link
+    (insert (format "[[id:%s][%s]]" file-id newfile))))
