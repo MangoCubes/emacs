@@ -5,6 +5,7 @@
 (load-relative "./org/org-roam.el")
 (load-relative "./org/org-website.el")
 (load-relative "./org/keybinds.el")
+(load-relative "./org/org-babel.el")
 
 (my/linux-or-win
   (lambda () (load-relative "./org/valign.el"))
