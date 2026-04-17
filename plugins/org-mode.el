@@ -6,6 +6,8 @@
 (load-relative "./org/org-website.el")
 (load-relative "./org/keybinds.el")
 (load-relative "./org/org-babel.el")
+(load-relative "./org/org-langs.el")
+(load-relative "./org/org-transclusion.el")
 
 (my/linux-or-win
   (lambda () (load-relative "./org/valign.el"))
@@ -41,7 +43,8 @@
 
 ;; Set orgmode latex size
 (setq org-format-latex-options (plist-put org-format-latex-options :scale (* default-scale 1.5)))
-(setq org-default-notes-file "~/Sync/Notes/Org/Agenda/Captures.org")
+
+(setq org-default-notes-file (expand-file-name "Agenda/Captures.org" my/org-root))
 
 ;; Add org-appear plugin
 ;; It reveals text representation of certain elements when the cursor is over them
@@ -64,6 +67,15 @@
 
 ;; This makes org-store-link to use ID if available
 (setq org-id-link-to-org-use-id t)
+
+(load-relative "./org/org-babel.el")
+
+(setq org-startup-folded 'showall)
+
+(tab-bar-mode 1)
+
+(with-eval-after-load 'org
+  (setf (alist-get 'file org-link-frame-setup) 'find-file))
 
 (my/linux-or-win
   (lambda () (add-hook 'org-mode-hook 'flyspell-mode))
