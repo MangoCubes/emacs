@@ -12,6 +12,7 @@
 (setq standard-indent 4)
 (setq-default tab-width 4)
 ;;(global-font-lock-mode 1)
+(setq inhibit-startup-screen t)
 
 ;; Remove sound
 (setq visible-bell 1)

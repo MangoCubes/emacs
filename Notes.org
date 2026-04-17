@@ -1,0 +1,10 @@
+* Loading Order
+  - =init=
+  - =my/functions= and =my/options=
+  - =common=
+  - Common plugin settings
+  - =my/startup=
+  - =linux= or =windows=
+  - Other plugins
+* Initialisation
+  - =desktop.el= or =headless.el= is loaded, depending on the current client
