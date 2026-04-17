@@ -1,5 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'warning-suppress-types '(straight package))
 (setq package-enable-at-startup nil)
 (defvar bootstrap-version)
 (let ((bootstrap-file
@@ -25,5 +26,7 @@
 (defvar default-scale (or (and (getenv "DEFAULT_SCALE") 
 							   (string-to-number (getenv "DEFAULT_SCALE"))) 
 						  1.1))
+
+
 (load-relative "./desktop.el")
 
