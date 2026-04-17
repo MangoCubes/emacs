@@ -1,4 +1,3 @@
-
 (setq evil-want-keybinding nil)
 ;; Install packages
 (straight-use-package 'evil)
@@ -9,6 +8,9 @@
 ;; Use visual line instead of actual lines
 (setq evil-respect-visual-line-mode t)
 ;; Set up undotree
+
+(setq evil-want-minibuffer t)
+
 (use-package undo-tree
   :ensure t
   :after evil
@@ -22,6 +24,7 @@
 (load-relative "./evil/visual.el")
 (load-relative "./evil/leader.el")
 (load-relative "./evil/evil-collection.el")
+(load-relative "./evil/keybinds.el")
 
 ;; Allow moving between lines
 (setq evil-cross-lines t)
