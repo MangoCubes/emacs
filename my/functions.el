@@ -75,20 +75,30 @@ clear the buffers undo-tree before saving the file."
   "Create a new .org file inside a directory named after the current Org file.
 
 If the directory does not exist, create it at the same level as the current file."
-  (interactive "sNew file name (without .org): ")
+  (interactive
+   (list (read-string "New file name (without .org): "
+                      (when (use-region-p)
+                        (buffer-substring-no-properties
+                         (region-beginning) (region-end))))))
   (let* ((current-file (buffer-file-name))
          (parent-dir (file-name-directory current-file))
-         (dir-name (if (use-region-p)
-                       (buffer-substring-no-properties
-                        (region-beginning) (region-end))
-                     (file-name-base current-file)))
-         (target-dir (expand-file-name dir-name parent-dir))
+         (heading-path (org-get-outline-path t))
+         (target-dir (expand-file-name
+                      (mapconcat #'identity
+                                 (cons (file-name-base current-file)
+                                       heading-path)
+                                 "/")
+                      parent-dir))
          (target-file (expand-file-name (concat newfile ".org") target-dir))
+         ;; Capture region state before doing anything else
+         (region-active (use-region-p))
+         (r-beg (when region-active (region-beginning)))
+         (r-end (when region-active (region-end)))
          file-id)
 
-    ;; Ensure directory exists
+    ;; Ensure directory exists (create parents recursively)
     (unless (file-directory-p target-dir)
-      (make-directory target-dir))
+      (make-directory target-dir t))
 
     ;; Create file if it does not exist
     (unless (file-exists-p target-file)
@@ -102,5 +112,14 @@ If the directory does not exist, create it at the same level as the current file
       (setq file-id (org-id-get))
       (save-buffer))
 
-    ;; Create link
-    (insert (format "[[id:%s][%s]]" file-id newfile))))
+    ;; Insert link based on highlight state
+    (let ((link-string (format "[[id:%s][%s]]" file-id newfile)))
+      (if region-active
+          ;; 1. If text was highlighted, replace the highlighted area with the link
+          (progn
+            (delete-region r-beg r-end)
+            (insert link-string))
+        ;; 2. If no text was highlighted, insert one position after the cursor
+        (unless (eobp) ;; Make sure we aren't at the absolute end of the buffer
+          (forward-char 1))
+        (insert link-string)))))
