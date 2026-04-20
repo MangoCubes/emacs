@@ -4,9 +4,14 @@
 (setq org-roam-directory my/org-root)
 
 (setq org-agenda-files
-      (directory-files-recursively
-       (expand-file-name "Daily" my/org-root)
-       "\\.org$"))
+      (let ((all-org-files (directory-files-recursively 
+                            (expand-file-name "Daily" my/org-root) 
+                            "\\.org$")))
+        (seq-filter (lambda (file)
+                      (not (or (string-match-p "\\.undo-tree$" file) ; Ignore undo-tree
+                               (string-match-p "/#" file)            ; Ignore auto-save temp files
+                               (string-match-p "~$" file))))         ; Ignore backup temp files
+                    all-org-files)))
 
 (setq org-agenda-todo-list-sublevels t)
 (setq org-agenda-tags-todo-honor-ignore-options t)

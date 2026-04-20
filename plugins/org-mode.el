@@ -68,8 +68,6 @@
 ;; This makes org-store-link to use ID if available
 (setq org-id-link-to-org-use-id t)
 
-(load-relative "./org/org-babel.el")
-
 (setq org-startup-folded 'showall)
 
 (tab-bar-mode 1)
