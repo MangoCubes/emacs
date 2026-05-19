@@ -76,5 +76,5 @@
   (setf (alist-get 'file org-link-frame-setup) 'find-file))
 
 (my/linux-or-win
-  (lambda () (add-hook 'org-mode-hook 'flyspell-mode))
+  (lambda () (load-relative "./org/flyspell.el"))
   (lambda () nil))
