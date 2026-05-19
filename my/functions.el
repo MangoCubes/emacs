@@ -21,24 +21,6 @@
   (tab-new)  ;; Create a new tab
   (ansi-term "bash"))
 
-(defun my/clean-undo-tree ()
-"Clear current buffer's undo-tree.
-Undo-tree can cause problems with file encoding when characters
-are inserted that cannot be represented using the files current
-encoding. This is even the case when characters are only
-temporarily inserted, e.g. pasted from another source and then
-instantly deleted. In these situations it can be necessary to
-clear the buffers undo-tree before saving the file."
-  (interactive)
-  (let ((buff (current-buffer)))
-    (if (local-variable-p 'buffer-undo-tree)
-        (if (my/ynp "Clear buffer-undo-tree?")
-            (progn
-              (setq buffer-undo-tree nil)
-              (message "Cleared undo-tree of buffer: %s" (buffer-name buff)))
-          (message "Cancelled clearing undo-tree of buffer: %s" (buffer-name buff)))
-      (error "Buffer %s has no local binding of `buffer-undo-tree'" (buffer-name buff)))))
-
 (defun my/org-mode-setup ()
   "Automatically run `org-id-get-create` when creating a new Org document, and create TITLE and DATE."
   (interactive)
@@ -82,7 +64,7 @@ If the directory does not exist, create it at the same level as the current file
                          (region-beginning) (region-end))))))
   (let* ((current-file (buffer-file-name))
          (parent-dir (file-name-directory current-file))
-         (heading-path (org-get-outline-path t))
+         (heading-path (org-get-outline-path (not (org-at-heading-p))))
          (target-dir (expand-file-name
                       (mapconcat #'identity
                                  (cons (file-name-base current-file)
