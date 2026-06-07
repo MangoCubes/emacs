@@ -41,7 +41,8 @@
 (evil-add-command-properties #'find-file :jump t)
 ;; Make mouse click count as jump
 (evil-add-command-properties #'mouse-set-point :jump t)
-(evil-add-command-properties #'org-open-at-point :jump t)
+
+(advice-add #'org-open-at-point :before (lambda (&rest _) (evil-set-jump)))
 
 ; Make horizontal movement cross lines                                    
 (setq-default evil-cross-lines t)
