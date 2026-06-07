@@ -123,4 +123,16 @@
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
 
+(defun my/treemacs-evil-set-jump (fn &rest args)
+  ;; Find window that is not treemacs
+  (let ((edit-win (cl-find-if (lambda (w) (not (eq 'treemacs-mode (buffer-local-value 'major-mode (window-buffer w)))))
+                              (window-list))))
+    (when edit-win (with-selected-window edit-win (evil-set-jump))))
+    (apply fn args))
+
+(with-eval-after-load 'treemacs
+  ;; Using :around gives us fn as first argument
+  (advice-add #'treemacs-visit-node-default :around #'my/treemacs-evil-set-jump)
+  (advice-add #'treemacs-visit-node-no-split :around #'my/treemacs-evil-set-jump))
+
 (treemacs-start-on-boot)
