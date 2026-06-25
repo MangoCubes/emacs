@@ -9,10 +9,6 @@
 (load-relative "./org/org-langs.el")
 (load-relative "./org/org-transclusion.el")
 
-(my/linux-or-win
-  (lambda () (load-relative "./org/valign.el"))
-  (lambda () nil))
-
 ;; Enable org indent mode by default
 (setq org-startup-indented t)
 
