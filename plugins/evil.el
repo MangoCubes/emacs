@@ -32,7 +32,7 @@
 ;; Enable Evil mode
 (evil-mode 1)
 ;; Make evil quit kill buffer as well as the window
-;; (global-set-key [remap evil-quit] 'kill-buffer-and-window)
+(global-set-key [remap evil-quit] 'kill-buffer-and-window)
 
 ;; Set space to leader
 (evil-set-leader 'normal (kbd "SPC"))
