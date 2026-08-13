@@ -46,3 +46,6 @@
 
 ; Make horizontal movement cross lines                                    
 (setq-default evil-cross-lines t)
+
+; Make Y yank to the end of line instead of copying the entire line
+(setq evil-want-Y-yank-to-eol t)
