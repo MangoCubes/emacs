@@ -1,3 +1,5 @@
 (straight-use-package 'flyspell-lazy)
 (require 'flyspell-lazy)
+(flyspell-lazy-mode 1)
+(flyspell-mode 1)
 (add-hook 'org-mode-hook 'flyspell-mode)
