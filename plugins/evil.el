@@ -9,7 +9,7 @@
 (setq evil-respect-visual-line-mode t)
 ;; Set up undotree
 
-(setq evil-want-minibuffer t)
+; (setq evil-want-minibuffer t)
 
 (use-package undo-tree
   :ensure t
@@ -49,3 +49,7 @@
 
 ; Make Y yank to the end of line instead of copying the entire line
 (setq evil-want-Y-yank-to-eol t)
+
+(setq evil-want-C-i-jump t)
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
