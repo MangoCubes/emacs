@@ -101,16 +101,6 @@
   :after (treemacs projectile)
   :ensure t)
 
-;; (straight-use-package 'treemacs-icons-dired)
-;; (use-package treemacs-icons-dired
-;;   :hook (dired-mode . treemacs-icons-dired-enable-once)
-;;   :ensure t)
-
-(straight-use-package 'treemacs-magit)
-(use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)
-
 (straight-use-package 'treemacs-persp)
 (use-package treemacs-persp ;;treemacs-perspective if you use perspective.el vs. persp-mode
   :after (treemacs persp-mode) ;;or perspective vs. persp-mode
