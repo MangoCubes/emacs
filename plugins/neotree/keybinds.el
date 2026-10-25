@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (global-set-key (kbd "<leader>s") 'neotree-show)
 (global-set-key (kbd "<leader>S") 'neotree-find)
 

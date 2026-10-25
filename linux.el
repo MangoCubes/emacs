@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (load-relative "./plugins/notmuch.el")
 (load-relative "./plugins/fcitx.el")
 

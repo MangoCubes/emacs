@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun my/org-insert-child-heading ()
   (interactive)
   (org-insert-heading-respect-content)

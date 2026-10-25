@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (straight-use-package 'which-key)
 
 (require 'which-key)

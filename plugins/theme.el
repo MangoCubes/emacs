@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (straight-use-package 'catppuccin-theme)
 
 (set-frame-parameter nil 'alpha-background 0.625)

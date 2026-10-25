@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (straight-use-package 'doom-modeline)
 
 (require 'doom-modeline)

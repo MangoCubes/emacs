@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Multiple Cursors
 (straight-use-package 'multiple-cursors)
 (require 'multiple-cursors)

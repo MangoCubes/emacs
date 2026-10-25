@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (straight-use-package 'flyspell-lazy)
 (require 'flyspell-lazy)
 (flyspell-lazy-mode 1)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (add-hook 'server-after-make-frame-hook
           (lambda ()
             ;; Your code here

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (straight-use-package 'volatile-highlights)
 (require 'volatile-highlights)
 (volatile-highlights-mode t)

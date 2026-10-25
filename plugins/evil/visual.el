@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Make arrow keys work as expected when lines wrap around
 (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
 (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)

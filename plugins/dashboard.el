@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;;
 ;;;; Open dashboard on opening emacsclient
 ;;(setq initial-buffer-choice (lambda () (get-buffer-create dashboard-buffer-name)))

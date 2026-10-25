@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (load-relative "./my/functions.el")
 (load-relative "./my/options.el")
 

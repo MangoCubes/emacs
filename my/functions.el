@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun my/terminal ()
   "Open a new terminal."
   (interactive)

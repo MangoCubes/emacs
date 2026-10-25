@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun my-setup-json-formatting ()
   "Use `json-pretty-print' for region indentation."
   (setq-local indent-region-function #'json-pretty-print))

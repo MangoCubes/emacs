@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun configure-font (frame)
   "Modify fonts"
   (set-face-attribute 'default nil :font "FiraCode Nerd Font-18" :height (floor (* default-scale 110)))

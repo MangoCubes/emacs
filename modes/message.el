@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (setq user-mail-address "admin@skew.ch")
 (setq user-full-name "Admin")
 

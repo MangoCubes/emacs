@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defvar org-export-output-directory-prefix "export_" "prefix of directory used for org-mode export")
 
 (defadvice org-export-output-file-name (before org-add-export-dir activate)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (load-relative "./common.el")
 
 (my/linux-or-win

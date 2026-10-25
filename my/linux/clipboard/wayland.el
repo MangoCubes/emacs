@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Copy to Wayland clipboard
 (setq wl-copy-process nil)
 (defun wl-copy (text)

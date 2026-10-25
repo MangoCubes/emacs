@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Emacs native options go here
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)

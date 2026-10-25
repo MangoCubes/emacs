@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (setq evil-want-integration t)
 (straight-use-package 'evil-collection)
 ;; Set up Evil collection
