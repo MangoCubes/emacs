@@ -2,11 +2,12 @@
 (load-relative "./common.el")
 
 (my/linux-or-win
-  (lambda () (load-relative "./linux.el"))
-  (lambda () (load-relative "./windows.el")))
+ (lambda () (load-relative "./linux.el"))
+ (lambda () (load-relative "./windows.el")))
 
 (load-relative "./plugins/nerd-icons.el")
 (load-relative "./plugins/org-mode.el")
+(load-relative "./modes/bibtex.el")
 (load-relative "./plugins/highlight.el")
 (load-relative "./plugins/xkcd.el")
 ;; (load-relative "./plugins/lsp.el")
