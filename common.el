@@ -10,6 +10,7 @@
 (load-relative "./plugins/others.el")
 (load-relative "./plugins/projectile.el")
 (load-relative "./plugins/treemacs.el")
+(load-relative "./plugins/magit.el")
 
 (load-relative "./plugins/ispell.el")
 ;; (load-relative "./plugins/neotree.el")
