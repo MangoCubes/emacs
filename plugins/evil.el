@@ -27,9 +27,6 @@
 (load-relative "./evil/evil-collection.el")
 (load-relative "./evil/keybinds.el")
 
-;; Allow moving between lines
-(setq evil-cross-lines t)
-
 ;; Enable Evil mode
 (evil-mode 1)
 ;; Make evil quit kill buffer as well as the window
