@@ -21,6 +21,9 @@
 
 (straight-use-package 'load-relative)
 
+;; Set init file as the file that was loaded with --load
+(defvar my/init-file load-file-name)
+
 ;; Some variables must be defined to use this emacs configuration independently
 ;; Refer to emacs.nix in my NixOS configuration for more information
 (defvar banner "~/.config/configMedia/emacs/banner.jpg")

@@ -4,6 +4,11 @@
   (interactive)
   (call-process "tdat" nil 0 nil (expand-file-name default-directory)))
 
+(defun my/reload-config ()
+  (interactive)
+  (load my/init-file)
+  (message "Reloaded %s" my/init-file))
+
 ;; Simplify yes-or-no prompt with simple y/n input
 (defun my/ynp (prompt)
   "Press Y or N"
