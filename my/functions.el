@@ -2,7 +2,7 @@
 (defun my/terminal ()
   "Open a new terminal."
   (interactive)
-  (start-process "t" nil "t"))
+  (call-process "tdat" nil 0 nil (expand-file-name default-directory)))
 
 ;; Simplify yes-or-no prompt with simple y/n input
 (defun my/ynp (prompt)
