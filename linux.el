@@ -1,8 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 (load-relative "./plugins/notmuch.el")
 (load-relative "./plugins/fcitx.el")
-
+(load-relative "./plugins/mermaid.el")
 (load-relative "./my/linux.el")
-
 (load-relative "./modes/message.el")
-
