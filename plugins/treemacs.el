@@ -108,12 +108,6 @@
   :ensure t
   :config (treemacs-set-scope-type 'Perspectives))
 
-(straight-use-package 'treemacs-tab-bar)
-(use-package treemacs-tab-bar ;;treemacs-tab-bar if you use tab-bar-mode
-  :after (treemacs)
-  :ensure t
-  :config (treemacs-set-scope-type 'Tabs))
-
 (defun my/treemacs-evil-set-jump (fn &rest args)
   ;; Find window that is not treemacs
   (let ((edit-win (cl-find-if (lambda (w) (not (eq 'treemacs-mode (buffer-local-value 'major-mode (window-buffer w)))))

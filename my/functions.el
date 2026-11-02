@@ -17,7 +17,7 @@
 		t
 	  (if (eq answer ?n)
 		  nil
-		(ynp prompt)))))
+		(my/ynp prompt)))))
 
 (defalias 'yes-or-no-p 'my/ynp)
 
